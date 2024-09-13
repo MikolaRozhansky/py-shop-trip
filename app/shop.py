@@ -21,10 +21,10 @@ class Shop:
         return round(result, 2)
 
     def purchase(self, customer: object) -> None:
-        current = datetime.datetime.now()
-        print("Date:", current.strftime("%d/%m/%Y %H:%M:%S"))
-        print(f"Thanks, {customer.name}, for your purchase!")
-        print("You have bought:")
+        current = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        print(f"Date: {current}\n"
+              f"Thanks, {customer.name}, for your purchase!\n"
+              f"You have bought:")
 
         for product, amount in customer.product_cart.items():
             cost = self.products[product] * amount

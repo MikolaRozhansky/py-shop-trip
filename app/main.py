@@ -6,29 +6,11 @@ from app.shop import Shop
 
 
 def shop_trip() -> None:
-    # print(os.getcwd())
 
     with open("app/config.json", "r") as f:
         datas = json.load(f)
 
     fuel_price = datas["FUEL_PRICE"]
-
-
-
-
-    # for customer in datas["customers"]:
-    #     customer_inst.append(Customer(
-    #         customer["name"],
-    #         customer["product_cart"],
-    #         customer["location"],
-    #         customer["money"],
-    #         Car(
-    #             customer["car"]["brand"],
-    #             customer["car"]["fuel_consumption"],
-    #         )
-    #     )
-    #     )
-
 
     customer_inst = [
         Customer(
@@ -46,18 +28,6 @@ def shop_trip() -> None:
         )
         for shop in datas["shops"]
     ]
-
-
-    # for shop in datas["shops"]:
-    #     shop_inst.append(
-    #         Shop(
-    #             shop["name"],
-    #             shop["location"],
-    #             shop["products"]
-    #
-    #         )
-    #     )
-
 
     for customer in customer_inst:
         print(f"{customer.name} has {customer.money} dollars")
@@ -90,6 +60,3 @@ def shop_trip() -> None:
         customer.customer_to_shop(lowest_shop_inst)
         lowest_shop_inst.purchase(customer)
         customer.customer_to_home(lowest_spent)
-#
-# if __name__ == "__main__":
-#     shop_trip()

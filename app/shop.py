@@ -1,4 +1,4 @@
-from datetime import datetime
+import datetime
 
 
 class Shop:
@@ -21,14 +21,15 @@ class Shop:
         return round(result, 2)
 
     def purchase(self, customer: object) -> None:
-        current = datetime.now()
-        print(current.strftime("%d/%m/%Y %H:%M:%S"))
-        print(f"Thanks, {customer.name}, for you purchase!")
+        current = datetime.datetime.now()
+        print("Date:", current.strftime("%d/%m/%Y %H:%M:%S"))
+        print(f"Thanks, {customer.name}, for your purchase!")
         print("You have bought:")
 
         for product, amount in customer.product_cart.items():
-            cost = round(self.products[product] * amount, 2)
-            print(f"{amount} {product} for {cost} dollars")
+            cost = self.products[product] * amount
+            print(self.products[product], amount)
+            print(f"{amount} {product}s for {cost} dollars")
 
-        print(f"Total cost is {self.total_price(customer)}")
+        print(f"Total cost is {self.total_price(customer)} dollars")
         print("See you again!\n")

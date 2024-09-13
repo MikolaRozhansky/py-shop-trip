@@ -1,10 +1,12 @@
-from car import Car
-from shop import Shop
-from customer import Customer
 import json
+
+from app.car import Car
+from app.customer import Customer
+from app.shop import Shop
 
 
 def shop_trip() -> None:
+
     with open("config.json", "r") as f:
         datas = json.load(f)
 
@@ -14,7 +16,6 @@ def shop_trip() -> None:
     shop_inst = []
 
     for customer in datas["customers"]:
-
         customer_inst.append(Customer(
             customer["name"],
             customer["product_cart"],
@@ -28,7 +29,6 @@ def shop_trip() -> None:
         )
 
     for shop in datas["shops"]:
-
         shop_inst.append(
             Shop(
                 shop["name"],
@@ -39,7 +39,7 @@ def shop_trip() -> None:
         )
 
     for customer in customer_inst:
-        print(f"{customer.name} has {customer.money}")
+        print(f"{customer.name} has {customer.money} dollars")
 
         lowest_spent = 0
         flag = True
@@ -60,7 +60,7 @@ def shop_trip() -> None:
 
         if customer.money <= lowest_spent:
             print(
-                f"{customer.name} doesn`t have enough money to make "
+                f"{customer.name} doesn't have enough money to make "
                 f"a purchase in any shop"
             )
             continue
@@ -69,7 +69,6 @@ def shop_trip() -> None:
         customer.customer_to_shop(lowest_shop_inst)
         lowest_shop_inst.purchase(customer)
         customer.customer_to_home(lowest_spent)
-
-
+#
 # if __name__ == "__main__":
 #     shop_trip()

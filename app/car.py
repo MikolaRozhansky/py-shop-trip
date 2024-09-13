@@ -24,5 +24,5 @@ class Car:
         if shop.is_all_product_in_shop(customer):
             cost = cost_fuel + shop.total_price(customer)
 
-        print(f"{customer.name}'s trip to the {shop.name} cost {cost}")
+        print(f"{customer.name}'s trip to the {shop.name} costs {cost}")
         return cost

@@ -8,7 +8,7 @@ from app.shop import Shop
 def shop_trip() -> None:
     # print(os.getcwd())
 
-    with open("config.json", "r") as f:
+    with open("app/config.json", "r") as f:
         datas = json.load(f)
 
     fuel_price = datas["FUEL_PRICE"]

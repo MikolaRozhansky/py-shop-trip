@@ -13,8 +13,8 @@ def shop_trip() -> None:
 
     fuel_price = datas["FUEL_PRICE"]
 
-    customer_inst = []
-    shop_inst = []
+
+
 
     # for customer in datas["customers"]:
     #     customer_inst.append(Customer(
@@ -28,6 +28,8 @@ def shop_trip() -> None:
     #         )
     #     )
     #     )
+
+
     customer_inst = [
         Customer(
             customer["name"],
@@ -37,28 +39,25 @@ def shop_trip() -> None:
             Car(**customer["car"])
         ) for customer in datas["customers"]
     ]
-    # for customer in datas["customers"]:
-    #     customer_inst.append(Customer(
-    #         customer["name"],
-    #         customer["product_cart"],
-    #         customer["location"],
-    #         customer["money"],
-    #         Car(
-    #             customer["car"]["brand"],
-    #             customer["car"]["fuel_consumption"],
+
+    shop_inst = [
+        Shop(
+            **shop
+        )
+        for shop in datas["shops"]
+    ]
+
+
+    # for shop in datas["shops"]:
+    #     shop_inst.append(
+    #         Shop(
+    #             shop["name"],
+    #             shop["location"],
+    #             shop["products"]
+    #
     #         )
     #     )
-    #     )
 
-    for shop in datas["shops"]:
-        shop_inst.append(
-            Shop(
-                shop["name"],
-                shop["location"],
-                shop["products"]
-
-            )
-        )
 
     for customer in customer_inst:
         print(f"{customer.name} has {customer.money} dollars")

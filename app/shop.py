@@ -28,7 +28,9 @@ class Shop:
 
         for product, amount in customer.product_cart.items():
             cost = self.products[product] * amount
-            print(self.products[product], amount)
+            if str(cost)[::-1][0:2] == "0.":
+                cost = round(self.products[product] * amount)
+
             print(f"{amount} {product}s for {cost} dollars")
 
         print(f"Total cost is {self.total_price(customer)} dollars")

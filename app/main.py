@@ -16,18 +16,39 @@ def shop_trip() -> None:
     customer_inst = []
     shop_inst = []
 
-    for customer in datas["customers"]:
-        customer_inst.append(Customer(
+    # for customer in datas["customers"]:
+    #     customer_inst.append(Customer(
+    #         customer["name"],
+    #         customer["product_cart"],
+    #         customer["location"],
+    #         customer["money"],
+    #         Car(
+    #             customer["car"]["brand"],
+    #             customer["car"]["fuel_consumption"],
+    #         )
+    #     )
+    #     )
+    customer_inst = [
+        Customer(
             customer["name"],
             customer["product_cart"],
             customer["location"],
             customer["money"],
-            Car(
-                customer["car"]["brand"],
-                customer["car"]["fuel_consumption"],
-            )
-        )
-        )
+            Car(**customer["car"])
+        ) for customer in datas["customers"]
+    ]
+    # for customer in datas["customers"]:
+    #     customer_inst.append(Customer(
+    #         customer["name"],
+    #         customer["product_cart"],
+    #         customer["location"],
+    #         customer["money"],
+    #         Car(
+    #             customer["car"]["brand"],
+    #             customer["car"]["fuel_consumption"],
+    #         )
+    #     )
+    #     )
 
     for shop in datas["shops"]:
         shop_inst.append(

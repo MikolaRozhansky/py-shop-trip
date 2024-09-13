@@ -1,5 +1,4 @@
 import json
-import os
 
 from app.car import Car
 from app.customer import Customer
@@ -9,7 +8,8 @@ from app.shop import Shop
 def shop_trip() -> None:
     # print(os.getcwd())
 
-    with open("C:/Users/bymik/projects/Practica_Python/py-shop-trip/app/config.json", "r") as f:
+    with open("C:/Users/bymik/projects/Practica_Python/"
+              "py-shop-trip/app/config.json", "r") as f:
         datas = json.load(f)
 
     fuel_price = datas["FUEL_PRICE"]

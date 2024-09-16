@@ -33,5 +33,5 @@ class Shop:
 
             print(f"{amount} {product}s for {cost} dollars")
 
-        print(f"Total cost is {self.total_price(customer)} dollars")
-        print("See you again!\n")
+        print(f"Total cost is {self.total_price(customer)} dollars\n"
+              f"See you again!\n")

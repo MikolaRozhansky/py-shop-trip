@@ -22,12 +22,7 @@ def shop_trip() -> None:
         ) for customer in datas["customers"]
     ]
 
-    shop_inst = [
-        Shop(
-            **shop
-        )
-        for shop in datas["shops"]
-    ]
+    shop_inst = [Shop(**shop) for shop in datas["shops"]]
 
     for customer in customer_inst:
         print(f"{customer.name} has {customer.money} dollars")
@@ -56,7 +51,6 @@ def shop_trip() -> None:
             )
             continue
 
-        # print(f"Lowest shop {lowest_shop_inst.name} {lowest_spent}")
         customer.customer_to_shop(lowest_shop_inst)
         lowest_shop_inst.purchase(customer)
         customer.customer_to_home(lowest_spent)

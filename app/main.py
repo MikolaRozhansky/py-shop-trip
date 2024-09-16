@@ -1,6 +1,5 @@
 import json
 
-from app.car import Car
 from app.customer import Customer
 from app.shop import Shop
 
@@ -12,15 +11,7 @@ def shop_trip() -> None:
 
     fuel_price = datas["FUEL_PRICE"]
 
-    customer_inst = [
-        Customer(
-            customer["name"],
-            customer["product_cart"],
-            customer["location"],
-            customer["money"],
-            Car(**customer["car"])
-        ) for customer in datas["customers"]
-    ]
+    customer_inst = [Customer(**customer) for customer in datas["customers"]]
 
     shop_inst = [Shop(**shop) for shop in datas["shops"]]
 

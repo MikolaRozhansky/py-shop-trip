@@ -8,12 +8,12 @@ class Customer:
                  product_cart: dict,
                  location: list,
                  money: float,
-                 car: Car) -> None:
+                 car: dict) -> None:
         self.name = name
         self.product_cart = product_cart
         self.location = location
         self.money = money
-        self.car = car
+        self.car = Car(**car)
 
     def is_money_enough(self, shop: Shop) -> True:
         if self.money >= shop.total_price(
